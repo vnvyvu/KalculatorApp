@@ -1,18 +1,265 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="com.vyvu.kalculatorapp.MainActivity"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textExpression"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="@dimen/sp_25"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.95" />
+
+    <TextView
+        android:id="@+id/textResult"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:textSize="@dimen/sp_45"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textExpression"
+        app:layout_constraintWidth_percent="0.95" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonCE"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/color_papaya_whip_50"
+        android:text="@string/text_ce"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintWidth_percent="0.25"
+        app:layout_constraintHeight_percent="0.09"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSeven"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/color_porcelain_70"
+        android:text="@string/text_7"
+        app:layout_constraintTop_toBottomOf="@id/buttonCE"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/buttonCE"
+        app:layout_constraintHeight_percent="0.09" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonFour"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/color_porcelain_70"
+        android:text="@string/text_4"
+        app:layout_constraintTop_toBottomOf="@id/buttonSeven"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/buttonCE"
+        app:layout_constraintHeight_percent="0.09" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonOne"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/color_porcelain_70"
+        android:text="@string/text_1"
+        app:layout_constraintTop_toBottomOf="@id/buttonFour"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/buttonCE"
+        app:layout_constraintHeight_percent="0.09" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonDelete"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/text_delete"
+        app:layout_constraintTop_toBottomOf="@id/buttonOne"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/buttonCE"
+        app:layout_constraintHeight_percent="0.09" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonBracketOpen"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/text_bracket_open"
+        app:layout_constraintTop_toTopOf="@id/buttonCE"
+        app:layout_constraintLeft_toRightOf="@id/buttonCE"
+        app:layout_constraintBottom_toBottomOf="@id/buttonCE"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonEight"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/color_porcelain_70"
+        android:text="@string/text_8"
+        app:layout_constraintTop_toTopOf="@id/buttonSeven"
+        app:layout_constraintBottom_toBottomOf="@id/buttonSeven"
+        app:layout_constraintLeft_toLeftOf="@id/buttonBracketOpen"
+        app:layout_constraintRight_toRightOf="@id/buttonBracketOpen" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonFive"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/color_porcelain_70"
+        android:text="@string/text_5"
+        app:layout_constraintTop_toTopOf="@id/buttonFour"
+        app:layout_constraintBottom_toBottomOf="@id/buttonFour"
+        app:layout_constraintLeft_toLeftOf="@id/buttonBracketOpen"
+        app:layout_constraintRight_toRightOf="@id/buttonBracketOpen" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonTwo"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/color_porcelain_70"
+        android:text="@string/text_2"
+        app:layout_constraintTop_toTopOf="@id/buttonOne"
+        app:layout_constraintBottom_toBottomOf="@id/buttonOne"
+        app:layout_constraintLeft_toLeftOf="@id/buttonBracketOpen"
+        app:layout_constraintRight_toRightOf="@id/buttonBracketOpen" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonZero"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/color_porcelain_70"
+        android:text="@string/text_0"
+        app:layout_constraintTop_toTopOf="@id/buttonDelete"
+        app:layout_constraintBottom_toBottomOf="@id/buttonDelete"
+        app:layout_constraintLeft_toLeftOf="@id/buttonBracketOpen"
+        app:layout_constraintRight_toRightOf="@id/buttonBracketOpen" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonBracketClose"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/text_bracket_close"
+        app:layout_constraintTop_toTopOf="@id/buttonCE"
+        app:layout_constraintLeft_toRightOf="@id/buttonBracketOpen"
+        app:layout_constraintBottom_toBottomOf="@id/buttonCE"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonNine"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/color_porcelain_70"
+        android:text="@string/text_9"
+        app:layout_constraintTop_toTopOf="@id/buttonSeven"
+        app:layout_constraintBottom_toBottomOf="@id/buttonSeven"
+        app:layout_constraintLeft_toLeftOf="@id/buttonBracketClose"
+        app:layout_constraintRight_toRightOf="@id/buttonBracketClose" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSix"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/color_porcelain_70"
+        android:text="@string/text_6"
+        app:layout_constraintTop_toTopOf="@id/buttonFour"
+        app:layout_constraintBottom_toBottomOf="@id/buttonFour"
+        app:layout_constraintLeft_toLeftOf="@id/buttonBracketClose"
+        app:layout_constraintRight_toRightOf="@id/buttonBracketClose" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonThree"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/color_porcelain_70"
+        android:text="@string/text_3"
+        app:layout_constraintTop_toTopOf="@id/buttonOne"
+        app:layout_constraintBottom_toBottomOf="@id/buttonOne"
+        app:layout_constraintLeft_toLeftOf="@id/buttonBracketClose"
+        app:layout_constraintRight_toRightOf="@id/buttonBracketClose" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonDot"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/text_dot"
+        app:layout_constraintTop_toTopOf="@id/buttonDelete"
+        app:layout_constraintBottom_toBottomOf="@id/buttonDelete"
+        app:layout_constraintLeft_toLeftOf="@id/buttonBracketClose"
+        app:layout_constraintRight_toRightOf="@id/buttonBracketClose" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonAdd"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/text_add"
+        app:layout_constraintTop_toTopOf="@id/buttonCE"
+        app:layout_constraintLeft_toRightOf="@id/buttonBracketClose"
+        app:layout_constraintBottom_toBottomOf="@id/buttonCE"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSubtract"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/text_subtract"
+        app:layout_constraintTop_toTopOf="@id/buttonSeven"
+        app:layout_constraintBottom_toBottomOf="@id/buttonSeven"
+        app:layout_constraintLeft_toLeftOf="@id/buttonAdd"
+        app:layout_constraintRight_toRightOf="@id/buttonAdd" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonMultiply"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/text_multiply"
+        app:layout_constraintTop_toTopOf="@id/buttonFour"
+        app:layout_constraintBottom_toBottomOf="@id/buttonFour"
+        app:layout_constraintLeft_toLeftOf="@id/buttonAdd"
+        app:layout_constraintRight_toRightOf="@id/buttonAdd" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonDivision"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/text_division"
+        app:layout_constraintTop_toTopOf="@id/buttonOne"
+        app:layout_constraintBottom_toBottomOf="@id/buttonOne"
+        app:layout_constraintLeft_toLeftOf="@id/buttonAdd"
+        app:layout_constraintRight_toRightOf="@id/buttonAdd" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSolve"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/color_pattens_blue_70"
+        android:text="@string/text_solve"
+        app:layout_constraintTop_toTopOf="@id/buttonDelete"
+        app:layout_constraintBottom_toBottomOf="@id/buttonDelete"
+        app:layout_constraintLeft_toLeftOf="@id/buttonAdd"
+        app:layout_constraintRight_toRightOf="@id/buttonAdd" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
